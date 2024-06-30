@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- 是否约束快照数量, 1代表约束，2及其他数字代表不约束-->
+    <entry key="isConstrainTime">1</entry>
+    <!-- 约束遍历快照数到何时开始 -->
+    <entry key="StartNo">0</entry>
+    <!-- 约束遍历快照数到何时截止 -->
+    <entry key="StopNo">17280</entry>
+
+    <!-- 快照发送时间间隔，计算单位为ms -->
+    <entry key="TransGap">40</entry>
+    <!-- 设置挖掘循环最大次数 -->
+    <entry key="MAX_RUNTIME">100</entry>
+    <!-- 设置快照挖掘的时间间隔，计算单位为s -->
+    <entry key="miningTimes">100</entry>
+    <!-- 窗口时间大小，单位是s -->
+    <entry key="TwindowSize">1</entry>
+    <!-- 设置是否测试，1是测试 -->
+    <entry key="test">0</entry>
+    <!-- 区域是否缩小到北京，1是北京，默认是全球区域=》使用Geolife时候要注意不能局限在北京 -->
+    <entry key="isBeijing">2</entry>
+    <!-- ICPE模式挖掘的算法实现选择,1是Baseline 2是FBA 3是VBA -->
+    <entry key="PEmode">2</entry>
+
+
+
+    <!--距离单位是米，按照最远距离110km/50km估计，且最佳网格宽度0.8%-->
+    <entry key="conversion_factor">111000</entry>
+    <entry key="conversion_lat">111000</entry>
+    <entry key="conversion_lont">111000</entry>
+
+<!--    <entry key="geoHashPrecision">24</entry>-->
+    <!-- 此处的精度为位的精度 -->
+    <!-- 精度为4，网格宽度为8/18km -->
+    <!-- 精度为5，网格宽度为2km -->
+    <!-- 精度为6，网格宽度为200m/500m -->
+    <!-- The following is to specify DBSCAN parameters-->
+    <!-- The following is to specify the pattern parameters -->
+
+
+    <!-- GeoLife参数设置 -->
+    <!-- GeoLife参数设置 -->
+    <!-- GeoLife参数设置 -->
+
+<!--    Trajectory in one day-->
+    <entry key="partitionNum">16</entry>
+    <entry key="parallelism">96</entry>
+<!--    <entry key="hdfs_input">hdfs://amax:9000//dataset/Geolife/Stream</entry> &lt;!&ndash;保留经纬度原始信息的轨迹&ndash;&gt;-->
+    <entry key="hdfs_input">hdfs://amax:9000//dataset/Geolife/Stream2/Stream</entry> <!--保留经纬度原始信息的轨迹，并且有朝向速度信息-->
+<!--    <entry key="hdfs_input">hdfs://amax:9000//dataset/Geolife/newPivotStream/newPivotStream</entry> &lt;!&ndash;转化为欧式坐标的轨迹&ndash;&gt;-->
+    <entry key="test_time">7200</entry>
+    <entry key="eps">40</entry>
+    <entry key="gridSize">800</entry>
+<!--    距离单位是米，按照最远距离100km/50km估计，且最佳网格宽度0.04%-->
+<!--    换成40可以有较多的簇，比较适合场景要求-->
+    <entry key="minPts">10</entry>  <!--固定在10即可不需要变了-->
+<!--    <entry key="K">36</entry>   &lt;!&ndash;根据Realtime Distributed 参数 K=180&ndash;&gt;-->
+<!--    <entry key="G">6</entry> &lt;!&ndash;根据Realtime Distributed 参数 G=30&ndash;&gt;-->
+<!--    <entry key="L">6</entry> &lt;!&ndash;根据Realtime Distributed 参数 L=30&ndash;&gt;-->
+<!--    <entry key="M">10</entry>-->
+    <entry key="K">36</entry>   <!--根据Realtime Distributed 参数 K=180-->
+    <entry key="G">6</entry> <!--根据Realtime Distributed 参数 G=30-->
+    <entry key="L">6</entry> <!--根据Realtime Distributed 参数 L=30-->
+    <entry key="M">10</entry>
+    <entry key="geoHashPrecision">20</entry>
+
+
+<!--    Trajectory in one week-->
+<!--    <entry key="partitionNum">16</entry>
+    <entry key="parallelism">16</entry>
+    <entry key="hdfs_input">hdfs://amax:9000//dataset/Geolife/rawWeekStream</entry> &lt;!&ndash;保留经纬度原始信息的轨迹，并且有朝向速度信息，转化为一周时间的跨度数据&ndash;&gt;
+    <entry key="test_time">7200</entry>
+    <entry key="eps">80</entry>
+    <entry key="gridSize">800</entry>
+    &lt;!&ndash;    距离单位是米，按照最远距离100km/50km估计，且最佳网格宽度0.04%&ndash;&gt;
+    &lt;!&ndash;    换成40可以有较多的簇，比较适合场景要求&ndash;&gt;
+&lt;!&ndash;    <entry key="minPts">5</entry>  &lt;!&ndash;固定在10即可不需要变了&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <entry key="K">8</entry>   &lt;!&ndash;根据Realtime Distributed 参数 K=180&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <entry key="G">4</entry> &lt;!&ndash;根据Realtime Distributed 参数 G=30&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <entry key="L">2</entry> &lt;!&ndash;根据Realtime Distributed 参数 L=30&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <entry key="M">5</entry>&ndash;&gt;
+    <entry key="minPts">10</entry>  &lt;!&ndash;固定在10即可不需要变了&ndash;&gt;
+    <entry key="K">24</entry>   &lt;!&ndash;根据Realtime Distributed 参数 K=180&ndash;&gt;
+    <entry key="G">2</entry> &lt;!&ndash;根据Realtime Distributed 参数 G=30&ndash;&gt;
+    <entry key="L">4</entry> &lt;!&ndash;根据Realtime Distributed 参数 L=30&ndash;&gt;
+    <entry key="M">10</entry>
+    <entry key="geoHashPrecision">20</entry>-->
+
+
+
+    <!-- Beijing Taxi的参数设置 -->
+    <!-- Beijing Taxi的参数设置 -->
+    <!-- Beijing Taxi的参数设置 -->
+
+<!--    Trajectory In one day-->
+<!--    <entry key="partitionNum">16</entry>
+    <entry key="parallelism">168</entry>
+&lt;!&ndash;    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/stream_l/stream_l</entry>   &lt;!&ndash; 转化欧式距离后的轨迹 &ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/rawstream_l</entry>   &lt;!&ndash;仅保留原始经纬度信息&ndash;&gt;&ndash;&gt;
+    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/rawstream_l2/rawstream_l</entry> &lt;!&ndash; 带有速度朝向信息 &ndash;&gt;
+    <entry key="test_time">1280</entry>
+    <entry key="eps">100</entry>
+    <entry key="gridSize">2000</entry>
+    <entry key="minPts">10</entry>
+    <entry key="K">10</entry>
+    <entry key="G">6</entry>
+    <entry key="L">5</entry>
+    <entry key="M">10</entry>
+    <entry key="geoHashPrecision">24</entry>
+    <entry key="hdfs_output">hdfs://amax:9000/result/beijingWeekResult.txt</entry>-->
+
+
+<!--    Trajectory In one week-->
+<!--
+    <entry key="partitionNum">16</entry>
+    <entry key="parallelism">64</entry>
+&lt;!&ndash;    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/weekStream_l</entry> &lt;!&ndash; 转化欧式距离后的轨迹 &ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/rawWeekStream_l</entry> &lt;!&ndash;仅保留原始经纬度信息&ndash;&gt;&ndash;&gt;
+    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/rawWeekStream_l2</entry> &lt;!&ndash; 原始经纬度，并带有速度朝向信息 &ndash;&gt;
+    <entry key="test_time">1280</entry>
+    <entry key="eps">50</entry>
+    <entry key="gridSize">2000</entry>
+    <entry key="minPts">4</entry>
+    <entry key="K">10</entry>
+    <entry key="G">6</entry>
+    <entry key="L">5</entry>
+    <entry key="M">8</entry>
+    <entry key="geoHashPrecision">20</entry>
+    <entry key="hdfs_output">hdfs://amax:9000/result/beijingDayResult.txt</entry>
+
+-->
+
+
+
+    <entry key="earth">0</entry>
+    <!-- The following is to specify flink parameters-->
+    <entry key="appName">moveflink</entry>
+<!--    <entry key="file_input">/data/ds/dataset/Geolife/newPivotStream</entry>-->
+<!--    <entry key="file_input">/data/ds/dataset/beijing-part/stream_l</entry>-->
+    <!-- The following is to specify i/o directory -->
+    <entry key="hdfs_uri">hdfs://amax:9000</entry>
+
+
+</properties>

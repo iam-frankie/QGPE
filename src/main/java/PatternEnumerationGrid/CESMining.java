@@ -30,20 +30,11 @@ public class CESMining implements FlatMapFunction<SubMap, Set<Set<Integer>>> {
     public void flatMap(SubMap ces, Collector<Set<Set<Integer>>> out) throws Exception {
         long startTime = System.currentTimeMillis(); // 获取开始时间
         Set<Set<Integer>> patterns = new HashSet<>();
-//        for (Map.Entry<Integer, List<Long>> entry : ces.entrySet()) {
-//            pattern.add(entry.getKey());
-//        }
-//        System.out.println("*********************CESMining:子任务大小"+ces.getSubMap().size()+"**********************************");
-//        System.out.println(ces.getSubMap().keySet());
-//        for(Map.Entry<Integer, PriorityQueue<Long>> entry:ces.getSubMap().entrySet()){
-//            System.out.println("value:"+entry.getValue());
-//        }
         this.t = ces.getTimestamp()-eta+1;
 
         // 1. 枚举子集
         int maxobjectsize = ces.getSubMap().size();
         List<Set<Integer>> S = enumerateSubsets(ces.getSubMap().keySet(), M-1, M-1, true);
-//        System.out.println("待枚举模式" + S);
         // 2. 建立位字符串
         Map<Integer, BitSet> B = new HashMap<>();
         Set<Integer> C = new HashSet<>();
@@ -52,17 +43,13 @@ public class CESMining implements FlatMapFunction<SubMap, Set<Set<Integer>>> {
             BitSet Boi = new BitSet(eta);
             for(Long timeStamp: ces.getSubMap().get(OiID)){
                 Boi.set((int) (timeStamp -t+1)); // 从0开始计数
-//                System.out.println(Boi);
             }
-
-            // Step 2: Check if B[oi] satisfies (K, L, G) constraints
             if (isValidBitSet(Boi)) {
                 C.add(OiID); // Add to the candidate list
             }
             B.put(OiID, Boi);
         }
 
-//        System.out.println(C);
         // 3. 枚举子集
         int S_level = M-1;
         while(!S.isEmpty() && S_level <= C.size()){
@@ -84,11 +71,8 @@ public class CESMining implements FlatMapFunction<SubMap, Set<Set<Integer>>> {
                 BitSet BO = B.get(citerator.next());
                 while(citerator.hasNext()){
                     BO.and(B.get(citerator.next()));
-//                    System.out.println("BO:"+BO);
                 }
                 if(isValidBitSet(BO)){
-//                    out.collect(candidatePattern);
-//                    System.out.println(candidatePattern);
                     patterns.add(candidatePattern);
                     Sa.add(candidatePattern);
                 }
@@ -96,16 +80,10 @@ public class CESMining implements FlatMapFunction<SubMap, Set<Set<Integer>>> {
             S = Sa;
 
 
-            // 检查执行时间
-            long endTime = System.currentTimeMillis(); // 获取结束时间
-            if (endTime - startTime > 200) {
-                System.out.println("Execution time exceeds 200ms. Exiting...");
-                return; // 提前退出方法
-            }
+
         }
 
         if(!patterns.isEmpty()) {
-            System.out.println("--------------------------------------------发现模式+1----------------------------------------------");
             System.out.println(patterns);
         }
         out.collect(patterns);

@@ -27,7 +27,6 @@ import scala.Tuple2;
 
 import java.util.*;
 
-//我现在配置了一个flink集群，有3个taskmanager，每个taskmanager有128个taskslot，但是为什么我在某一台机器上向flink提交一个并行度256的任务却会失败，每次提交的任务只有并行度小于单机taskslot数量128才行，超过这个数量无法进行分配，如果我如何才能充分利用集群分配运行并行度超过128小于384的任务呢
 public class MainAppGrid2 {
     public static void main(String[] args) throws Exception {
         // todo 1、得到环境参数和输入文件路径

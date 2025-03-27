@@ -84,17 +84,20 @@ public class MainAppGrid2 {
                 DataStream<Cluster> clusterStream = gDBSCAN.gridDBSCAN_Launcher(snapshotStream, geoHashPrecision, M,
                                 epsilon, minPts, ConversionFactor, TwindowSize, parallelism, isTest,
                                 SlidingWinndowSize);
+                clusterStream.print();
 
-                int finalGeoHashPrecision = geoHashPrecision;
-                DataStream<SubMap> ces = clusterStream
-                                .keyBy(cluster -> cluster.getClusterID().substring(0, finalGeoHashPrecision)) // partition
-                                                                                                              // by ptid
-                                .process(new GridExtracting(SlidingWinndowSize, M, K, L, G))
-                                .setParallelism(parallelism);
+                // todo 3、进行模式挖掘
+                // int finalGeoHashPrecision = geoHashPrecision;
+                // DataStream<SubMap> ces = clusterStream
+                // .keyBy(cluster -> cluster.getClusterID().substring(0, finalGeoHashPrecision))
+                // // partition
+                // // by ptid
+                // .process(new GridExtracting(SlidingWinndowSize, M, K, L, G))
+                // .setParallelism(parallelism);
 
-                DataStream<Set<Set<Integer>>> patterns = ces
-                                .flatMap(new CESMining(SlidingWinndowSize, M, K, L, G))
-                                .setParallelism(parallelism);
+                // DataStream<Set<Set<Integer>>> patterns = ces
+                // .flatMap(new CESMining(SlidingWinndowSize, M, K, L, G))
+                // .setParallelism(parallelism);
                 // 持久化的处理
                 // patterns.writeAsText("hdfs://amax:9000//result/result.txt").setParallelism(1);
 
@@ -107,3 +110,7 @@ public class MainAppGrid2 {
         }
 
 }
+
+// hdfs dfs -put /data/ds/dataset/beijing-part /dataset/beijing-part
+// hdfs dfs -put /data/ds/dataset/Geolife/newPivotStream
+// /dataset/Geolife/newPivotStream

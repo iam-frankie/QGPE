@@ -107,7 +107,3 @@ public class MainAppGrid2 {
         }
 
 }
-
-// hdfs dfs -put /data/ds/dataset/beijing-part /dataset/beijing-part
-// hdfs dfs -put /data/ds/dataset/Geolife/newPivotStream
-// /dataset/Geolife/newPivotStream

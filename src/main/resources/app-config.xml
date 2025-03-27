@@ -66,28 +66,6 @@
     <entry key="geoHashPrecision">20</entry>
 
 
-<!--    Trajectory in one week-->
-<!--    <entry key="partitionNum">16</entry>
-    <entry key="parallelism">16</entry>
-    <entry key="hdfs_input">hdfs://amax:9000//dataset/Geolife/rawWeekStream</entry> &lt;!&ndash;保留经纬度原始信息的轨迹，并且有朝向速度信息，转化为一周时间的跨度数据&ndash;&gt;
-    <entry key="test_time">7200</entry>
-    <entry key="eps">80</entry>
-    <entry key="gridSize">800</entry>
-    &lt;!&ndash;    距离单位是米，按照最远距离100km/50km估计，且最佳网格宽度0.04%&ndash;&gt;
-    &lt;!&ndash;    换成40可以有较多的簇，比较适合场景要求&ndash;&gt;
-&lt;!&ndash;    <entry key="minPts">5</entry>  &lt;!&ndash;固定在10即可不需要变了&ndash;&gt;&ndash;&gt;
-&lt;!&ndash;    <entry key="K">8</entry>   &lt;!&ndash;根据Realtime Distributed 参数 K=180&ndash;&gt;&ndash;&gt;
-&lt;!&ndash;    <entry key="G">4</entry> &lt;!&ndash;根据Realtime Distributed 参数 G=30&ndash;&gt;&ndash;&gt;
-&lt;!&ndash;    <entry key="L">2</entry> &lt;!&ndash;根据Realtime Distributed 参数 L=30&ndash;&gt;&ndash;&gt;
-&lt;!&ndash;    <entry key="M">5</entry>&ndash;&gt;
-    <entry key="minPts">10</entry>  &lt;!&ndash;固定在10即可不需要变了&ndash;&gt;
-    <entry key="K">24</entry>   &lt;!&ndash;根据Realtime Distributed 参数 K=180&ndash;&gt;
-    <entry key="G">2</entry> &lt;!&ndash;根据Realtime Distributed 参数 G=30&ndash;&gt;
-    <entry key="L">4</entry> &lt;!&ndash;根据Realtime Distributed 参数 L=30&ndash;&gt;
-    <entry key="M">10</entry>
-    <entry key="geoHashPrecision">20</entry>-->
-
-
 
     <!-- Beijing Taxi的参数设置 -->
     <!-- Beijing Taxi的参数设置 -->
@@ -110,26 +88,6 @@
     <entry key="geoHashPrecision">24</entry>
     <entry key="hdfs_output">hdfs://amax:9000/result/beijingWeekResult.txt</entry>-->
 
-
-<!--    Trajectory In one week-->
-<!--
-    <entry key="partitionNum">16</entry>
-    <entry key="parallelism">64</entry>
-&lt;!&ndash;    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/weekStream_l</entry> &lt;!&ndash; 转化欧式距离后的轨迹 &ndash;&gt;&ndash;&gt;
-&lt;!&ndash;    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/rawWeekStream_l</entry> &lt;!&ndash;仅保留原始经纬度信息&ndash;&gt;&ndash;&gt;
-    <entry key="hdfs_input">hdfs://amax:9000/dataset/beijing-part/rawWeekStream_l2</entry> &lt;!&ndash; 原始经纬度，并带有速度朝向信息 &ndash;&gt;
-    <entry key="test_time">1280</entry>
-    <entry key="eps">50</entry>
-    <entry key="gridSize">2000</entry>
-    <entry key="minPts">4</entry>
-    <entry key="K">10</entry>
-    <entry key="G">6</entry>
-    <entry key="L">5</entry>
-    <entry key="M">8</entry>
-    <entry key="geoHashPrecision">20</entry>
-    <entry key="hdfs_output">hdfs://amax:9000/result/beijingDayResult.txt</entry>
-
--->
 
 
 

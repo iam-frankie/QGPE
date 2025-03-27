@@ -1,8 +1,5 @@
 package ClusteringGrid;
 
-// GridPartitioning目前的逻辑是基于KD-tree的分区思路，每次将子空间中的中间物体的值进行进行二分，直到达到预设的分区数量为止；我想改造一下逻辑，改为基于quad-tree的分区思路，每次将子空间依据经纬度进行四分，直到达到预设的分区数量，帮我改写一下代码实现需求
-// GridPartitioning的作用是进行全局网格的划分，并为每个网格赋予index的id，现在赋予id的方式其实是乱序的，因为每一个快照到来，list的分区都是混乱的，现在我想根据分区的空间经纬度信息将其固定下来id，也就是说每个固定地理空间的id分区，在不同的snapshot中都是相同的，帮我看看如何改造这个程序
-
 import ClusteringKD.Partition;
 import ClusteringKD.SubSpace;
 import Model.Point;
